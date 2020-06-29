@@ -351,7 +351,7 @@ public class TestDetailActivity extends AppCompatActivity {
         params.put("id", 1);
         params.put("jsonrpc", "2.0");
         params.put("username", username);
-        params.put("method", "user.login");
+        params.put("method", HanApApi.login());
         HashMap<String, Object> params2 = new HashMap<>();
         params2.put("username", username);
         params2.put("password", EncryptUtils.md5(password));

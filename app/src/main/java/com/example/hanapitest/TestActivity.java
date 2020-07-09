@@ -371,7 +371,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
                     String sitedescribe = et8.getText().toString();
                     String ssidname = et9.getText().toString();
                     String pskpwd = et10.getText().toString();
-                    String macContent = et4.getText().toString();
+                    String macContent = et11.getText().toString();
                     ArrayList<String> maclist = new ArrayList<>();
                     maclist.add(macContent);
 

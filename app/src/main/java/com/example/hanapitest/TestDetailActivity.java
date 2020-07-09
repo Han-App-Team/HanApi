@@ -47,6 +47,8 @@ public class TestDetailActivity extends AppCompatActivity {
         responseData = findViewById(R.id.responseData);
         responseHeader = findViewById(R.id.responseHeader);
 
+        HanWanWeiApi.urlAddress="192.168.2.60";
+
         int type = getIntent().getIntExtra("type", 0);
         switch (type) {
             case 1:
@@ -94,7 +96,7 @@ public class TestDetailActivity extends AppCompatActivity {
         String password = getIntent().getStringExtra("password");
         HashMap<String, String> params = new HashMap<>();
         params.put("account", username);
-        params.put("pwd", EncryptUtils.rsaEncrypt(EncryptUtils.MD5(password)));
+        params.put("pwd", EncryptUtils.rsaEncrypt(EncryptUtils.md5(password)));
         JSONObject jsonObject = new JSONObject(params);
         OkGo.<String>post(HanWanWeiApi.login())
                 .upJson(jsonObject)
@@ -301,7 +303,7 @@ public class TestDetailActivity extends AppCompatActivity {
 
         HashMap<String, Object> params = new HashMap<>();
         params.put("username", username);
-        params.put("pwd", pwd);
+        params.put("pwd", EncryptUtils.rsaEncrypt(EncryptUtils.md5(pwd)));
         params.put("email", email);
         params.put("telephone", telephone);
         params.put("corpname", corpname);
@@ -310,10 +312,10 @@ public class TestDetailActivity extends AppCompatActivity {
         params.put("sitedescribe", sitedescribe);
         params.put("ssidname", ssidname);
         params.put("pskpwd", pskpwd);
-        params.put("apmac", apmac != null ? apmac.toArray() : new Object[0]);
+        params.put("apmacs", apmac);
 
         JSONObject jsonObject = new JSONObject(params);
-        OkGo.<String>post(HanWanWeiApi.cspAll())
+        OkGo.<String>post("https://192.168.2.60/apiv1/wanwei/csp/all")
                 .upJson(jsonObject)
                 .execute(new StringCallback() {
                     @Override

@@ -343,11 +343,11 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
                     et4.setHint("csp用户手机号-必填");
                     et5.setHint("集团名称，非必须");
                     et6.setHint("集团描叙，非必须");
-                    et7.setHint("场所名称，必须");
+                    et7.setHint("场所名称，必填");
                     et8.setHint("场所描叙，非必须");
                     et9.setHint("ssid名称，非必须");
                     et10.setHint("psk的密码，编码待定，创建ssid的情况下必须");
-                    et11.setHint("apmac，非必须");
+                    et11.setHint("apmac，必填");
                 })
                 .setBtnRightClickedListener((dialog, view) -> {
                     EditText et1 = view.findViewById(R.id.et_input_1);
